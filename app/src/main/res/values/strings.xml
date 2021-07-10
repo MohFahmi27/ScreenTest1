@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ScreenTest1</string>
+    <string name="input_name">Masukkan Nama</string>
+    <string name="next">Next</string>
+    <string name="pilih_event">Pilih Event</string>
+    <string name="pilih_guest">Pilih Guest</string>
+    <string name="name_placeholder">Name : %s</string>
+    <string name="birthdate_placeholder">Birthdate : %s</string>
+</resources>

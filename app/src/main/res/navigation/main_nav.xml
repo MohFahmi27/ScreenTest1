@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mfahmi.screentest1.fragment.HomeFragment"
+        android:label="WELCOME"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_chooseFragment"
+            app:destination="@id/chooseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseFragment"
+        android:name="com.mfahmi.screentest1.fragment.ChooseFragment"
+        android:label="CHOOSE"
+        tools:layout="@layout/fragment_choose">
+        <action
+            android:id="@+id/action_chooseFragment_to_guestFragment"
+            app:destination="@id/guestFragment"
+            app:popUpTo="@id/chooseFragment" />
+        <action
+            android:id="@+id/action_chooseFragment_to_eventFragment"
+            app:destination="@id/eventFragment"
+            app:popUpTo="@id/chooseFragment" />
+        <argument
+            android:name="nameInput"
+            app:argType="string" />
+        <argument
+            android:name="eventName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="guestName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="guestBirthdate"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="com.mfahmi.screentest1.fragment.EventFragment"
+        android:label="EVENT"
+        tools:layout="@layout/fragment_event">
+        <action
+            android:id="@+id/action_eventFragment_to_chooseFragment"
+            app:destination="@id/chooseFragment"
+            app:popUpTo="@id/chooseFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="nameInput"
+            app:argType="string" />
+        <argument
+            android:name="guestName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/guestFragment"
+        android:name="com.mfahmi.screentest1.fragment.GuestFragment"
+        android:label="GUEST"
+        tools:layout="@layout/fragment_guest" >
+        <action
+            android:id="@+id/action_guestFragment_to_chooseFragment"
+            app:destination="@id/chooseFragment"
+            app:popUpTo="@id/chooseFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="nameInput"
+            app:argType="string" />
+        <argument
+            android:name="eventName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

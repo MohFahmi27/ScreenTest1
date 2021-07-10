@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".fragment.ChooseFragment">
+
+    <TextView
+        android:id="@+id/tv_name_choose"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.30"
+        tools:text="Nama : Mohammad Fahmi" />
+
+    <Button
+        android:id="@+id/btn_choose_event"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/pilih_event"
+        app:layout_constraintEnd_toEndOf="@+id/tv_name_choose"
+        app:layout_constraintStart_toStartOf="@+id/tv_name_choose"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_choose" />
+
+
+    <Button
+        android:id="@+id/btn_choose_guest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/pilih_guest"
+        app:layout_constraintEnd_toEndOf="@+id/btn_choose_event"
+        app:layout_constraintStart_toStartOf="@+id/btn_choose_event"
+        app:layout_constraintTop_toBottomOf="@+id/btn_choose_event" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

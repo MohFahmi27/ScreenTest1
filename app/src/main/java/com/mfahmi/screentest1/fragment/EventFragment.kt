@@ -1,0 +1,47 @@
+package com.mfahmi.screentest1.fragment
+
+import android.os.Bundle
+import android.view.View
+import android.viewbinding.library.fragment.viewBinding
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.mfahmi.screentest1.R
+import com.mfahmi.screentest1.data.dummy.EventDummyData
+import com.mfahmi.screentest1.databinding.FragmentEventBinding
+import com.mfahmi.screentest1.utils.EventAdapter
+
+class EventFragment : Fragment(R.layout.fragment_event) {
+    private val binding: FragmentEventBinding by viewBinding()
+    private val eventAdapter by lazy {
+        EventAdapter(EventDummyData.getEventDataDummy())
+    }
+    private val args: EventFragmentArgs by navArgs()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        eventAdapter.onItemClick = { event ->
+            findNavController().navigate(
+                EventFragmentDirections.actionEventFragmentToChooseFragment(
+                    args.nameInput, event.name, args.guestName, null
+                )
+            )
+        }
+
+        with(binding.rvEvent) {
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+            adapter = eventAdapter
+        }
+    }
+
+}
