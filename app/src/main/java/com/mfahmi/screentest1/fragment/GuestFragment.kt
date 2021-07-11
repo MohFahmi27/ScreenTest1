@@ -38,6 +38,13 @@ class GuestFragment : Fragment(R.layout.fragment_guest) {
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = guestAdapter
         }
+
+        with(binding.swrLyt) {
+            setOnRefreshListener {
+                binding.pbGuest.visibility = View.VISIBLE
+                getDataGuest()
+            }
+        }
     }
 
     private fun getDataGuest() {
@@ -45,6 +52,7 @@ class GuestFragment : Fragment(R.layout.fragment_guest) {
             override fun onResponse(call: Call<List<Guest>>, response: Response<List<Guest>>) {
                 guestAdapter.guests = response.body() as ArrayList<Guest>
                 binding.pbGuest.visibility = View.GONE
+                binding.swrLyt.isRefreshing = false
             }
 
             override fun onFailure(call: Call<List<Guest>>, t: Throwable) {

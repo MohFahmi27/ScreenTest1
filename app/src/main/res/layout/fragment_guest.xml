@@ -5,11 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".fragment.GuestFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_guest"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swr_lyt"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/items_guest" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_guest"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/items_guest" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <ProgressBar
         android:id="@+id/pb_guest"

@@ -31,20 +31,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showDialog(dialogMsg: String) {
-        val builder: AlertDialog.Builder by lazy {
-            AlertDialog.Builder(requireContext())
-                .setMessage(dialogMsg)
-                .setPositiveButton("Next") { _, _ ->
-                    findNavController()
-                        .navigate(
-                            HomeFragmentDirections.actionHomeFragmentToChooseFragment(
-                                binding.edtAddTitle.text.toString(), null, null, null
-                            )
+        AlertDialog.Builder(requireContext())
+            .setMessage(dialogMsg)
+            .setPositiveButton("Next") { _, _ ->
+                findNavController()
+                    .navigate(
+                        HomeFragmentDirections.actionHomeFragmentToChooseFragment(
+                            binding.edtAddTitle.text.toString(), null, null, null
                         )
-                }
-                .setNegativeButton("Cancel") {_, _ -> }
-        }
-        builder.show()
+                    )
+            }
+            .setNegativeButton("Cancel") { _, _ -> }
+            .show()
     }
 
 }
