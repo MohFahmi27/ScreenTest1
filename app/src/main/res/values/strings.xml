@@ -6,6 +6,7 @@
     <string name="pilih_guest">Pilih Guest</string>
     <string name="name_placeholder">Name : %s</string>
     <string name="birthdate_placeholder">Birthdate : %s</string>
+    <string name="isprime_placeholder">isPrime : %s</string>
     <string name="selamat_datang">Selamat Datang!</string>
     <string name="desc_home">Sertakan gambar profil anda untuk melengkapi profil</string>
     <string name="back_button">Back Button</string>

@@ -3,7 +3,6 @@ package com.mfahmi.screentest1.fragment
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -26,7 +25,7 @@ class EventFragment : Fragment(R.layout.fragment_event) {
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_new_media -> {
-                        Toast.makeText(requireContext(), "test", Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(EventFragmentDirections.actionEventFragmentToMapFragment())
                         true
                     }
                     else -> {

@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mfahmi.screentest1.R
 import com.mfahmi.screentest1.databinding.FragmentChooseBinding
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+import com.mfahmi.screentest1.utils.getDescFromDate
 
 class ChooseFragment : Fragment(R.layout.fragment_choose) {
 
@@ -52,17 +50,6 @@ class ChooseFragment : Fragment(R.layout.fragment_choose) {
                     )
                 )
             }
-        }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun getDescFromDate(dateString: String): String {
-        val date = LocalDate.parse(dateString, DateTimeFormatter.ISO_DATE).dayOfMonth
-        return when {
-            (date % 3 == 0) && (date % 2 == 0) -> "iOS"
-            date % 2 == 0 -> "Blackberry"
-            date % 3 == 0 -> "Android"
-            else -> "Phone"
         }
     }
 
