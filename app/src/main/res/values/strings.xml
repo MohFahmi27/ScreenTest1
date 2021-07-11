@@ -8,4 +8,10 @@
     <string name="birthdate_placeholder">Birthdate : %s</string>
     <string name="selamat_datang">Selamat Datang!</string>
     <string name="desc_home">Sertakan gambar profil anda untuk melengkapi profil</string>
+    <string name="back_button">Back Button</string>
+    <string name="message_from_codi">message from codi</string>
+    <string name="event_description_dummy">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent lacinia pulvinar neque quis scelerisque… </string>
+    <string name="new_media">New Media</string>
+    <string name="search">Search</string>
 </resources>

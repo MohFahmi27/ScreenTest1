@@ -35,7 +35,7 @@ class ChooseFragment : Fragment(R.layout.fragment_choose) {
             }
         }
         with(binding) {
-            tvNameChoose.text = args.nameInput
+            tvNameChoose.text = getString(R.string.name_placeholder, args.nameInput)
             btnChooseEvent.text = buttonTextEvent
             btnChooseGuest.text = buttonTextGuest
             btnChooseEvent.setOnClickListener {
