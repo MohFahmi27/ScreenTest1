@@ -1,13 +1,15 @@
 package com.mfahmi.screentest1.fragment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.mfahmi.screentest1.R
 import com.mfahmi.screentest1.databinding.FragmentHomeBinding
+import com.mfahmi.screentest1.utils.isPalindromeWord
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -19,18 +21,30 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         with(binding) {
             btnAddName.setOnClickListener {
                 if (edtAddTitle.text!!.isNotEmpty()) {
-                    view.findNavController()
-                        .navigate(
-                            HomeFragmentDirections.actionHomeFragmentToChooseFragment(
-                                edtAddTitle.text.toString(), null, null, null
-                            )
-                        )
+                    showDialog(edtAddTitle.text.toString().isPalindromeWord())
                 } else {
                     Toast.makeText(requireContext(), "Please Enter your name", Toast.LENGTH_SHORT)
                         .show()
                 }
             }
         }
+    }
+
+    private fun showDialog(dialogMsg: String) {
+        val builder: AlertDialog.Builder by lazy {
+            AlertDialog.Builder(requireContext())
+                .setMessage(dialogMsg)
+                .setPositiveButton("Next") { _, _ ->
+                    findNavController()
+                        .navigate(
+                            HomeFragmentDirections.actionHomeFragmentToChooseFragment(
+                                binding.edtAddTitle.text.toString(), null, null, null
+                            )
+                        )
+                }
+                .setNegativeButton("Cancel") {_, _ -> }
+        }
+        builder.show()
     }
 
 }

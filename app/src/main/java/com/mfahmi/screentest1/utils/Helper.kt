@@ -19,6 +19,15 @@ fun Int.isPrimeNum(): Boolean {
     return true
 }
 
+fun String.removeSpace(): String = this.filter { !it.isWhitespace() }
+
+fun String.isPalindromeWord(): String {
+    return when(this.removeSpace().equals(this.removeSpace().reversed(), ignoreCase = false)) {
+        true -> "isPalindrome"
+        false -> "not Palindrome"
+    }
+}
+
 @SuppressLint("NewApi")
 fun getDescFromDate(dateString: String): String {
     val date = dateString.convertToDate().dayOfMonth
