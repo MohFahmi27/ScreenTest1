@@ -38,6 +38,8 @@ class MapFragment : Fragment(R.layout.fragment_map) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnBackMap.setOnClickListener { requireActivity().onBackPressed() }
+        binding.toolbarMap.inflateMenu(R.menu.menu_event)
         mapView = binding.mapViewEvent
         mapView.onCreate(savedInstanceState)
         eventAdapter.onItemClick = { }

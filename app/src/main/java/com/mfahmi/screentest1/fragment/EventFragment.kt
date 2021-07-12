@@ -21,7 +21,7 @@ class EventFragment : Fragment(R.layout.fragment_event) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBackEvent.setOnClickListener { requireActivity().onBackPressed() }
         with(binding.toolbarEvent) {
-            inflateMenu(R.menu.menut_event)
+            inflateMenu(R.menu.menu_event)
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_new_media -> {
