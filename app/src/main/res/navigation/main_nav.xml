@@ -60,6 +60,9 @@
             android:name="guestName"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_eventFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
     <fragment
         android:id="@+id/guestFragment"
@@ -79,4 +82,9 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.mfahmi.screentest1.fragment.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
 </navigation>

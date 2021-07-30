@@ -1,5 +1,6 @@
 package com.mfahmi.screentest1.utils
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -20,12 +21,18 @@ class GuestAdapter :
 
     inner class GuestAdapterViewHolder(private val binding: ItemsGuestBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("NewApi")
         fun bind(myGuest: Guest) {
             with(binding) {
                 tvNameGuest.text =
                     itemView.context.getString(R.string.name_placeholder, myGuest.name)
                 tvBirthdateGuest.text =
                     itemView.context.getString(R.string.birthdate_placeholder, myGuest.birthdate)
+                (myGuest.birthdate.convertToDate().monthValue).isPrimeNum().toString()
+                    .also {
+                        tvIsPrime.text =
+                            itemView.context.getString(R.string.isprime_placeholder, it)
+                    }
             }
         }
 

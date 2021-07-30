@@ -6,7 +6,6 @@ import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mfahmi.screentest1.R
 import com.mfahmi.screentest1.data.dummy.EventDummyData
@@ -15,13 +14,26 @@ import com.mfahmi.screentest1.utils.EventAdapter
 
 class EventFragment : Fragment(R.layout.fragment_event) {
     private val binding: FragmentEventBinding by viewBinding()
-    private val eventAdapter by lazy {
-        EventAdapter(EventDummyData.getEventDataDummy())
-    }
+    private val eventAdapter by lazy { EventAdapter(EventDummyData.getEventDataDummy()) }
     private val args: EventFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnBackEvent.setOnClickListener { requireActivity().onBackPressed() }
+        with(binding.toolbarEvent) {
+            inflateMenu(R.menu.menu_event)
+            setOnMenuItemClickListener {
+                when (it.itemId) {
+                    R.id.action_new_media -> {
+                        findNavController().navigate(EventFragmentDirections.actionEventFragmentToMapFragment())
+                        true
+                    }
+                    else -> {
+                        super.onOptionsItemSelected(it)
+                    }
+                }
+            }
+        }
 
         eventAdapter.onItemClick = { event ->
             findNavController().navigate(
@@ -34,12 +46,6 @@ class EventFragment : Fragment(R.layout.fragment_event) {
         with(binding.rvEvent) {
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
-            addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
-                )
-            )
             adapter = eventAdapter
         }
     }

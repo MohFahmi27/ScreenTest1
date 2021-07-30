@@ -4,16 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.EventFragment">
+    tools:context=".fragment.MapFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_event"
+        android:id="@+id/toolbar_map"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/tool_line_background">
 
         <ImageButton
-            android:id="@+id/btn_back_event"
+            android:id="@+id/btn_back_map"
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:background="@android:color/transparent"
@@ -27,15 +27,18 @@
             android:text="@string/message_from_codi"
             android:textAllCaps="true"
             android:textColor="#c4b454"
-            android:textStyle="bold"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_event"
+        android:id="@+id/rv_event_map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="4dp"
-        tools:listitem="@layout/items_event" />
+        android:layout_height="wrap_content" />
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/map_view_event"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
